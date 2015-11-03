@@ -1,0 +1,315 @@
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div id = "sidebar-div" class="col-3">
+
+<div id = "initial">
+<button id = "create-form" type="button">Create Form</button>
+</div><br/>
+
+<div id = "options">
+<h2>Select features to add to the form</h2>
+<button id = "create-inputtext" type = "button" >Text Input</button><br/>
+<button id = "create-password" type = "button" >Password Input</button><br/>
+<button id = "create-textarea" type = "button" >TextArea</button><br/>
+<button id = "create-number" type = "button" >Number Input</button><br/>
+<button id = "create-radio" type = "button" >Radio Button</button><br/>
+<button id = "create-select" type = "button" >Drop-Down List</button><br/>
+<button id = "create-datalist" type = "button" >Data List</button><br/>
+<button id = "create-keygen" type = "button" >Keygen</button><br/>
+<button id = "create-submit" type = "button" >Submit Button</button><br/>
+</div><br/>
+
+<div id = "result">
+</div>
+
+</div>
+
+<div id = "form-div" class="col-9">
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("create-form").addEventListener("click", function() {
+    myFunction(1);
+});
+document.getElementById("create-inputtext").addEventListener("click", function() {
+    myFunction(2);
+});
+document.getElementById("create-textarea").addEventListener("click", function() {
+    myFunction(3);
+});
+document.getElementById("create-password").addEventListener("click", function() {
+    myFunction(4);
+});
+document.getElementById("create-number").addEventListener("click", function() {
+    myFunction(5);
+});
+document.getElementById("create-radio").addEventListener("click", function() {
+    myFunction(6);
+});
+document.getElementById("create-select").addEventListener("click", function() {
+    myFunction(7);
+});
+document.getElementById("create-datalist").addEventListener("click", function() {
+    myFunction(8);
+});
+document.getElementById("create-keygen").addEventListener("click", function() {
+    myFunction(9);
+});
+document.getElementById("create-submit").addEventListener("click", function() {
+    myFunction(10);
+});
+   
+function myFunction(x) {
+   var formdiv = document.getElementById("form-div");
+   
+   if(x==1){
+		var result = prompt("Enter Form Name", "");
+		var create = document.createElement('form'); 
+		create.id = "form";
+		create.name = result;
+		formdiv.appendChild(create);
+		var head = document.createElement('H1'); 
+		var t = document.createTextNode("" + result + " Form");     
+		head.appendChild(t);
+		head.style.textAlign = "center";
+		var form = document.getElementById("form");
+		form.appendChild(head);
+		form.innerHTML += "<br/>";
+		var initial = document.getElementById("initial");
+		var options = document.getElementById("options");
+		options.style.display = "block";
+		initial.style.display = "none";
+		formdiv.style.border = "thick solid black";
+		
+   }
+   if(x==2){
+		var label = document.createElement('label');
+		var result = prompt("Enter Field Name", "");
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		var create = document.createElement('input');
+		create.type = "text";
+		create.id = result + "field";
+		create.name = result;
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+   }
+   if(x==3){
+		var label = document.createElement('label');
+		var result = prompt("Enter Field Name", "");
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		var create = document.createElement('textarea');
+		create.id = result + "field";
+		create.name = result;
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+   }
+   if(x==4){
+		var label = document.createElement('label');
+		label.innerHTML = "Password: ";
+		label.id = result + "label";
+		label.name = result + " label";
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		var create = document.createElement('input'); 
+		create.type = "password";
+		create.id = result + "field";
+		create.name = result;
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+   }
+   if(x==5){
+		var label = document.createElement('label');
+		var result = prompt("Enter Field Name", "");
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		var create = document.createElement('input'); 
+		create.type = "number";
+		create.id = result + "field";
+		create.name = result;
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+   }
+   if(x==6){
+		var label = document.createElement('label');
+		var result = prompt("Enter Field Name", "");
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+
+		var number = prompt("Enter Number of Radio Options", "");
+		var limit = parseInt(number);
+	
+		for(var i = 0; i < limit; i++){
+			var create = document.createElement('input');
+			create.type = "radio";
+			create.id = result + "field";
+			create.name = result;
+
+			var rlabel = document.createElement('label');
+			var rresult = prompt("Enter Radio Option", "");
+			rlabel.innerHTML = rresult; 
+			form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+			form.appendChild(create);
+			form.appendChild(rlabel);
+		}
+		
+		form.innerHTML += "<br/><br/>";
+   }
+   if(x==7){
+   
+		var label = document.createElement('label');
+		var result = prompt("Enter List Name", "");
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		var list = document.createElement('select'); 
+		list.id = result + "select";
+		list.name = result;
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(list);
+		
+		
+		var number = prompt("Enter Number of List Options", "");
+		var limit = parseInt(number);
+	
+		for(var i = 1; i <= limit; i++){
+			var result = prompt("Enter Option " + i , "");
+			var create = document.createElement('option');
+			create.text = result;
+			create.id = result + "field";
+			create.name = result;
+			list.add(create);
+		}
+
+		form.innerHTML += "<br/><br/>";
+   }
+   if(x==8){
+		var label = document.createElement('label');
+		var result = prompt("Enter List Name", "");
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		var list = document.createElement('datalist'); 
+		list.id = result + "datalist";
+		list.name = result;
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.innerHTML += '<input list="'+ list.id  + '" name="'+ list.name + '">';
+		form.appendChild(list);
+		
+		
+		var number = prompt("Enter Number of List Options", "");
+		var limit = parseInt(number);
+		var str  = "";
+	
+		for(var i = 1; i <= limit; i++){
+			var result = prompt("Enter Option " + i , "");
+			str += '<option value="'+result+'">'+result+ '</option>' ;
+		}
+		list.innerHTML = str;
+		form.innerHTML += "<br/><br/>";
+	}
+   if(x==9){
+        var label = document.createElement('label');
+		var result = prompt("Enter Field Name", "");
+		label.innerHTML = result + ": ";
+		label.id = result + "label";
+		label.name = result + " label";
+		var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(label);
+		form.innerHTML += "<br/>";
+		var create = document.createElement('keygen');
+		create.type = "text";
+		create.id = result + "field";
+		create.name = "security";
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;"
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+	}
+   if(x==10){
+        var form = document.getElementById("form");
+		form.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+		var result = prompt("Enter text for button", "");
+		var create = document.createElement('button');
+		create.type = "button";
+		create.id = result;
+		var t = document.createTextNode("" + result);      
+		create.appendChild(t);
+		form.appendChild(create);
+		form.innerHTML += "<br/><br/>";
+		document.getElementById("" + create.id ).addEventListener("click", function() {
+			showResult();
+		});
+	}
+}
+
+function showResult() {
+
+	var length = document.getElementById("form").elements.length;
+    var json = '{"form":[';
+	for(var i = 0; i < length-1; i++){
+		var field = document.getElementById("form").elements[i];
+		if(i == length-2){
+			json += '{"' + field.name + '":"' + field.value + '"}';
+		}
+		else{
+			json += '{"' + field.name + '":"' + field.value + '"},';
+		}
+		
+	}
+	json += ']}';
+    document.getElementById("result").innerHTML = json;
+
+}
+
+</script>
+
+</body>
+
+</html>
